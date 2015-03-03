@@ -1,0 +1,23 @@
+body
+{
+    background-color:#F5F5DC;
+    font-family:Arial;
+    color: #000000;
+}
+
+.button
+{
+    font-family:Arial;
+    color:#00FF00;
+}
+th{
+    margin-right:30px;
+}
+
+a:hover {
+    color: #FF3333;
+}
+a:visited {
+    color: indigo;
+}
+
