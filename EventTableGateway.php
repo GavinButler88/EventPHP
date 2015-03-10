@@ -24,7 +24,11 @@ class EventTableGateway {
 
     public function getEventById($id) {
         // execute a query to get the user with the specified id
-        $sqlQuery = "SELECT * FROM event WHERE Eventid = :Eventid";
+        $sqlQuery = 
+                "SELECT e.*, l.NameOfLocation AS NameOfLocation
+                 FROM event e
+                 LEFT JOIN location l ON l.Locationid = e.Locationid";
+             
 
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(

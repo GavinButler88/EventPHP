@@ -26,12 +26,15 @@ $statement = $gateway->getEventById($id);
     <head>
         <meta charset="UTF-8">
         <link type = "text/css" href ="event.css" rel ="stylesheet"/>
+        <script type = "text/javascript" src="js/event.js"></script>
         <title></title>
     </head>
     <body>
         <img src="logo_event.png" alt="logo" style="width:500px;height:200px;">
         <?php require 'toolbar.php' ?>
-        <?php
+        <?php require 'header.php' ?>
+        
+        <?php 
         if (isset($message)) {
             echo '<p>' . $message . '</p>';
         }
@@ -67,7 +70,11 @@ $statement = $gateway->getEventById($id);
                 echo '</tr>';
                 echo '<tr>';
                 echo '<td>Price</td>'
-                . '<td>' . $row['Price'] . '</td>'
+                . '<td>' . $row['Price'] . '</td>';
+                echo '</tr>';
+                echo '<tr>';
+                echo '<td>Location</td>'
+                . '<td>' . $row['NameOfLocation'] . '</td>';
                 ?>
             </tbody>
         </table>

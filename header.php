@@ -1,2 +1,2 @@
-<h1>Software Company Application</h1>
+<h1>Event Company Application</h1>
 

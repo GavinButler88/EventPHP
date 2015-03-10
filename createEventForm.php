@@ -85,13 +85,13 @@ require 'ensureUserLoggedIn.php';
                     <tr>
                         <td>Location</td>
                         <td>
-                            <select name="location_id">
-                                <option value="-1">No location</option>
+                            <select name ="Locationid">
+                                <option value ="-1">No Location</option>
                                 <?php
-                                $e = $events->fetch(PDO::FETCH_ASSOC);
-                                while ($m) {
-                                    echo '<option value="' . $lid['id'] . '">' . $lid['Locationid'] . '</option>';
-                                    $lid = $events->fetch(PDO::FETCH_ASSOC);
+                                $l = $locations->fetch(PDO::FETCH_ASSOC);
+                                while ($l) {
+                                    echo '<option value="' . $l['lid'] . '">' . $l['name'] . '</option>';
+                                    $l = $locations->fetch(PDO::FETCH_ASSOC);
                                 }
                                 ?>
                             </select>
