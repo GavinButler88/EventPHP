@@ -90,7 +90,7 @@ require 'ensureUserLoggedIn.php';
                                 <?php
                                 $l = $locations->fetch(PDO::FETCH_ASSOC);
                                 while ($l) {
-                                    echo '<option value="' . $l['lid'] . '">' . $l['name'] . '</option>';
+                                    echo '<option value="' . $l['lid'] . '">' . $l['NamoOfLocation'] . '</option>';
                                     $l = $locations->fetch(PDO::FETCH_ASSOC);
                                 }
                                 ?>
@@ -100,7 +100,7 @@ require 'ensureUserLoggedIn.php';
                     <tr>
                         <td></td>
                         <td>
-                            <input type="submit" value="Create Event" name="createEvent" />
+                            <input type="submit" value="Create Event" name="createEvent">
                             <a href="home.php">Back to Home</a>
                         </td>
                     </tr>

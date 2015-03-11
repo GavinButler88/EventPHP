@@ -1,64 +1,52 @@
 <?php
 
 //
-class Event {
+class Location {
     
-    private $eventid;
-    private $title;
-    private $description;
-    private $startDate;
-    private $time;
-    private $endDate;
-    private $maxCapacity;
-    private $price;
     private $locationid;
+    private $nameOfLocation;
+    private $address;
+    private $maxCapacity;
+    private $locationManagerName;
+    private $locationManagerAddress;
+    private $locationManagerNumber;
 
-    public function __construct($id, $t, $d, $sd, $tm, $ed, $mc, $p, $lid) {
-        $this->eventid = $id;
-        $this->title = $t;
-        $this->description = $d;
-        $this->startDate = $sd;
-        $this->time = $tm;
-        $this->endDate = $ed;
-        $this->maxCapacity = $mc;
-        $this->price = $p;
+    public function __construct($lid, $nol, $a, $mc, $lmn, $lma, $lmno) {
         $this->locationid = $lid;
-    }
-    
-    public function getEventid() {
-        return $this->eventid;
-    }
-    
-    public function getTitle() {
-        return $this->title;
-    }
-
-    public function getDescription() {
-        return $this->description;
-    }
-
-    public function getstartDate() {
-        return $this->startDate;
-    }
-
-    public function getTime() {
-        return $this->time;
-    }
-
-    public function getendDate() {
-        return $this->endDate;
-    }
-
-    public function getmaxCapacity() {
-        return $this->maxCapacity;
-    }
-
-    public function getPrice() {
-        return $this->price;
+        $this->nameOfLocation = $nol;
+        $this->address = $a;
+        $this->maxCapacity = $mc;
+        $this->locationManagerName = $lmn;
+        $this->locationManagerAddress = $lma;
+        $this->locationManagerNumber = $lmno;
     }
     
     public function getLocationid() {
         return $this->locationid;
+    }
+    
+    public function getNameOfLocation() {
+        return $this->nameOfLocation;
+    }
+
+    public function getAddress() {
+        return $this->address;
+    }
+
+    public function getMaxCapacity() {
+        return $this->maxCapacity;
+    }
+
+    public function getLocationManagerName() {
+        return $this->lmn;
+    }
+
+    public function getLocationManagerAddress() {
+        return $this->lma;
+    }
+
+    public function getLocationManagerNumber() {
+        return $this->lmno;
     }
 
 }

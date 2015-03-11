@@ -1,6 +1,6 @@
 <?php
 
-class EventTableGateway {
+class LocationTableGateway {
 
     private $connection;
 
@@ -8,31 +8,29 @@ class EventTableGateway {
         $this->connection = $c;
     }
 
-    public function getEvents() {
+    public function getManager() {
         // execute a query to get all programmers
-        $sqlQuery = "SELECT * FROM event";
+        $sqlQuery = "SELECT * FROM location";
 
         $statement = $this->connection->prepare($sqlQuery);
         $status = $statement->execute();
 
         if (!$status) {
-            die("Could not retrieve events");
+            die("Could not retrieve locations");
         }
 
         return $statement;
     }
 
-    public function getEventById($id) {
+    public function getLocationById($id) {
         // execute a query to get the user with the specified id
         $sqlQuery = 
-                "SELECT e.*, l.NameOfLocation AS NameOfLocation
-                 FROM event e
-                 LEFT JOIN location l ON l.Locationid = e.Locationid";
+                "SELECT * FROM location WHERE Locationid = :Locationid";
              
 
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
-            "Eventid" => $id
+            "Locationid" => $id
         );
 
         $status = $statement->execute($params);
@@ -45,7 +43,7 @@ class EventTableGateway {
     }
 
     //function to insert an event into a database
-    public function insertEvent($t, $d, $sd, $tm, $ed, $mc, $p, $lid) {
+    public function insertLocation($t, $d, $sd, $tm, $ed, $mc, $p, $lid) {
         //execute a query to insert an event to the db
         $sqlQuery = "INSERT INTO event " .
                 "(Title, Description, StartDate, Time, EndDate, MaxCapacity, Price, Locationid) " .
@@ -122,3 +120,5 @@ class EventTableGateway {
     }
 
 }
+
+
