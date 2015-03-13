@@ -38,6 +38,7 @@ $statement = $gateway->getEvents();
                     <th>End Date</th>
                     <th>Maximum Capacity</th>
                     <th>Price</th>
+                    <th>Location ID</th>
                 </tr>
             </thead>
             <tbody>
