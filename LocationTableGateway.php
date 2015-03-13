@@ -8,7 +8,7 @@ class LocationTableGateway {
         $this->connection = $c;
     }
 
-    public function getManager() {
+    public function getLocation() {
         // execute a query to get all programmers
         $sqlQuery = "SELECT * FROM location";
 
@@ -43,28 +43,26 @@ class LocationTableGateway {
     }
 
     //function to insert an event into a database
-    public function insertLocation($t, $d, $sd, $tm, $ed, $mc, $p, $lid) {
+    public function insertLocation($nol, $a, $mc, $lmn, $lma, $lmno) {
         //execute a query to insert an event to the db
-        $sqlQuery = "INSERT INTO event " .
-                "(Title, Description, StartDate, Time, EndDate, MaxCapacity, Price, Locationid) " .
-                "VALUES (:Title, :Description, :StartDate, :Time, :EndDate, :MaxCapacity, :Price, :Locationid)";
+        $sqlQuery = "INSERT INTO location " .
+                "(NameOfLocation, Address, MaxCapacity, LocationManagerName, LocationManagerAddress, LocationManagerNumber) " .
+                "VALUES (:NameOfLocation, :Address, :MaxCapacity, :LocationManagerName, :LocationManagerAddress, :LocationManagerNumber)";
 
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
-            "Title" => $t,
-            "Description" => $d,
-            "StartDate" => $sd,
-            "Time" => $tm,
-            "EndDate" => $ed,
+            "NameOfLocation" => $nol,
+            "Address" => $a,
             "MaxCapacity" => $mc,
-            "Price" => $p,
-            "Locationid" => $lid
+            "LocationManagerName" => $lmn,
+            "LocationManagerAddress" => $lma,
+            "LocationManagerNumber" => $lmno
         );
 
         $status = $statement->execute($params);
 
         if (!$status) {
-            die("Could not insert user");
+            die("Could not insert location");
         }
 
         $id = $this->connection->lastInsertId();
@@ -73,39 +71,38 @@ class LocationTableGateway {
     }
 
     //function and query to delete an event from the database
-    public function deleteEvent($id) {
-        $sqlQuery = "DELETE FROM event WHERE Eventid = :id";
+    public function deleteLocation($id) {
+        $sqlQuery = "DELETE FROM location WHERE Locationid = :id";
 
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
-            "id" => $id
+            "Locationid" => $id
         );
 
         $status = $statement->execute($params);
 
         if (!$status) {
-            die("Could not delete user");
+            die("Could not delete location");
         }
 
         return ($statement->rowCount() == 1);
     }
 
     //function and query to edit an event in the database
-    public function updateEvent($id, $t, $d, $sd, $tm, $ed, $mc, $p) {
-        $sqlQuery = "UPDATE event SET Title=:Title, Description=:Description, StartDate=:StartDate,"
-                . "Time=:Time, EndDate=:EndDate, MaxCapacity=:MaxCapacity, Price=:Price WHERE Eventid = :Eventid";
+    public function updateLocation($lid, $nol, $a, $mc, $lmn, $lma, $lmno) {
+        $sqlQuery = "UPDATE location SET NameOfLocation=:NameOfLocation, Address=:Address, MaxCapacity=:MaxCapacity,"
+                . "LocationManagerName=:LocationManagerName, LocationManagerAddress=:LocationManagerAddress, LocationManagerNumber=:LocationManagerNumber WHERE Locationid = :Locationid";
 
 
         $statement = $this->connection->prepare($sqlQuery);
         $params = array(
-            "Eventid" => $id,
-            "Title" => $t,
-            "Description" => $d,
-            "StartDate" => $sd,
-            "Time" => $tm,
-            "EndDate" => $ed,
-            "MaxCapacity" => $mc,
-            "Price" => $p
+            "Locationid" => $id,
+            "NameOfLocation" => $nol,
+            "Address" => $a,
+            "MaxCapacity" => mc,
+            "LocationManagerName" => $lmn,
+            "LocationManagerAddress" => $lma,
+            "LocationManagerNumber" => $lmno
         );
 
         $status = $statement->execute($params);

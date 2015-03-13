@@ -53,6 +53,7 @@ $statement = $gateway->getEvents();
                     echo '<td>' . $row['EndDate'] . '</td>';
                     echo '<td>' . $row['MaxCapacity'] . '</td>';
                     echo '<td>' . $row['Price'] . '</td>';
+                    echo '<td>' . $row['Locationid'] . '</td>';
                     echo '<td>'
                     //displays buttons and links
                     . '<a href="viewEvent.php?id=' . $row['Eventid'] . '">View</a> '
