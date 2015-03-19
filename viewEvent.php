@@ -74,7 +74,7 @@ $statement = $gateway->getEventById($id);
                 echo '</tr>';
                 echo '<tr>';
                 echo '<td>Location</td>'
-                . '<td>' . $row['NameOfLocation'] . '</td>';
+                . '<td>' . $row['Locationid'] . '</td>';
                 ?>
             </tbody>
         </table>

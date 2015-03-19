@@ -2,9 +2,11 @@
 require_once 'Connection.php';
 require_once 'LocationTableGateway.php';
 require 'ensureUserLoggedIn.php';
+
 $connection = Connection::getInstance();
 $locationGateway = new LocationTableGateway($connection);
-$locations = $LocationGateway->getLocation();
+$locations = $locationGateway->getLocation();
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -38,7 +40,7 @@ $locations = $LocationGateway->getLocation();
                 </thead>
                 <tbody>
                     <?php
-                    $row = $managers->fetch(PDO::FETCH_ASSOC);
+                    $row = $locations->fetch(PDO::FETCH_ASSOC);
                     while ($row) {
                         echo '<td>' . $row['nameOfLocation'] . '</td>';
                         echo '<td>' . $row['address'] . '</td>';

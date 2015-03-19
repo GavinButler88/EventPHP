@@ -1,6 +1,6 @@
 <?php
 require_once 'Connection.php';
-require_once 'LocatoinTableGateway.php';
+require_once 'LocationTableGateway.php';
 require_once 'EventTableGateway.php';
 $sessionId = session_id();
 if ($sessionId == "") {
@@ -68,12 +68,12 @@ $events = $eventGateway->getEventByLocationId($id);
                 </tbody>
             </table>
             <p>
-                <a href="editLocationForm.php?id=<?php echo location['id']; ?>">
+                <a href="editLocationForm.php?id= <?php echo $location['id']; ?>">
                     Edit Location</a>
-                <a class="deleteLocation" href="deleteLocation.php?id=<?php echo location['id']; ?>">
+                <a class="deleteLocation" href="deleteLocation.php?id=<?php echo $location['id']; ?>">
                     Delete Location</a>
             </p>
-            <h3>Event Assigned to <?php echo location['nameOfLocation']; ?></h3>
+            <h3>Event Assigned to <?php echo $location['nameOfLocation']; ?></h3>
             <?php if ($events->rowCount() !== 0) { ?>
                 <table class="table">
                     <thead>

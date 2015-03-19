@@ -72,6 +72,7 @@ $statement = $gateway->getEvents();
         <p>
             <a href="createEventForm.php">Create Event</a>
             <a href="home.php">Back to Home</a>
+            <a href="viewLocation.php">View Locations</a>
         </p>
     </body>
 </html>
